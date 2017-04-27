@@ -1,0 +1,164 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+</head>
+    
+<body>
+	
+    <form>
+        
+
+       
+<td><input class="imput" name="display" value="0" size=20></td>
+
+    
+        
+        
+
+
+
+<table >
+<tr >
+<td>
+<input class="mas-menos" type="button" value="   +-    "
+  onClick="agregar(this.form.display, '-(')">
+</td>
+<td>
+<input class="parentesis-1" type="button" value="    (    "
+  onClick="agregar(this.form.display, '(')">
+</td>
+<td>
+<input class="parentesis-2" type="button" value="    )    "
+  onClick="agregar(this.form.display, ')')">
+</td>
+<td>
+<input class="favorito" class="signo" type="button" value="   ☆    "
+  onClick="">
+</td>
+<!--    inicio segunda fila-->
+<tr>
+ <td>
+<input class="num1" type="button" value="    7    "
+  onClick="agregar(this.form.display, '7')">
+</td>
+<td>
+<input class="num2" type="button" value="    8    "
+  onClick="agregar(this.form.display, '8')">
+</td>
+<td>
+<input class="num3" type="button" value="    9    "
+  onClick="agregar(this.form.display, '9')">
+</td>
+<td>
+<input class="signo" type="button" value="    /    "
+  onClick="agregar(this.form.display, '/')">
+</td>
+</tr>
+<!--inicio segunda fila-->
+	<tr>
+ <td>
+<input class="num1" type="button" value="    4    "
+  onClick="agregar(this.form.display, '4')">
+</td>
+<td>
+<input class="num2" type="button" value="    5    "
+  onClick="agregar(this.form.display, '5')">
+</td>
+<td>
+<input class="num3" type="button" value="    6    "
+  onClick="agregar(this.form.display, '6')">
+</td>
+<td>
+<input class="signo" type="button" value="    x    "
+  onClick="agregar(this.form.display, '*')">
+</td>
+</tr>
+<tr>
+ <td>
+<input class="num1" type="button" value="    1    "
+  onClick="agregar(this.form.display, '1')">
+</td>
+<td>
+<input class="num2" type="button" value="    2    "
+  onClick="agregar(this.form.display, '2')">
+</td>
+<td>
+<input class="num3" type="button" value="    3    "
+  onClick="agregar(this.form.display, '3')">
+</td>
+<td>
+<input class="signo" type="button" value="    -    "
+  onClick="agregar(this.form.display, '-')">
+</td>
+</tr>
+<tr>
+ <td>
+<input class="cero" type="button" value="    0    "
+  onClick="agregar(this.form.display, '0')">
+</td>
+<td>
+<input class="punto" type="button" value="    .    "
+  onClick="agregar(this.form.display, '.')">
+</td>
+<td>
+<input class="porcentaje" type="button" value="    %    "
+  onClick="agregar(this.form.display, '%')">
+</td>
+<td rowspan="2">
+<input class="signo-mas" type="button" value="    +   "
+  onClick="agregar(this.form.display, '+')">
+</td>
+</tr>
+<tr>
+ <td>
+<input class="c" type="button" value="    C   "
+  onClick="borrar(this.form.display, '0')">
+</td>
+<td colspan="2">
+<input class="igual" type="button" value="    =    "
+  onClick="respuesta(this.form.display, resultado)">
+</td>
+
+</tr>
+</table>
+
+
+</form>
+	<body onload="cargarCodigo()">
+</body>
+    
+<script>
+	var resultado;
+	var codigo;
+	function cargarCodigo(){
+		if(localStorage.getItem("codigo")=="10007"|| localStorage.getItem("codigo")==null)
+		localStorage.setItem("codigo","10007");
+	}
+    
+//    function ingreso(caracter){
+//     document.getElementById('imput').value ='caracter';
+//    }
+    function agregar(input, character)
+{
+    if(input.value == null || input.value == "0")
+        input.value = character;
+    else
+        input.value += character;
+}
+	function borrar( input, character){
+	if(input.value != null || input.value != "0")
+        input.value = character	
+	}
+	function respuesta(input, character){
+		codigo=localStorage.getItem("codigo");
+			resultado=eval(input.value);
+			input.value=resultado;
+		if(input.value==codigo){
+			window.location.assign('VentanaSecreta.html');}
+	}
+</script>
+</html>
